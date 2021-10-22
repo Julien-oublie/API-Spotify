@@ -2,22 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <h1>recherche ce que tu veux</h1>
-    <div class="recherche">
-        <input type="text"  id="search">
-        <input type="button" value="recherche" onclick="getAllInfo()">
+<header class="recherche">
+    <div class="title">
+        <h1>Spotibruh. </h1>
+    </div>
+    <div class="navigation">
+        
+        <a href="">accueil</a>
+        <a href="track.html">track</a>
+        <a href="">Pour vous !</a>
+        <div class="recherche">
+            <input class="barre de recherche" type="text"  id="search">
+            <input  type="button" value="recherche" onclick="getAllInfo()">
+        </div>
+       
+    </div>
+</header>
+   <!-- <div class="containers-Recommendation">
+        <h1>Vos recommendation</h1>
+            <div class="container-recommendation">
+
+            </div>
+    </div> -->
+    <div class="containers-artists" id="img-artist">
+
 
     </div>
-    <div class="container-artist" id="img-artist">
+   
 
-        
+    
+
+
 
     </div>
    <script src="app.js"></script>
+   
 </body>
 </html>

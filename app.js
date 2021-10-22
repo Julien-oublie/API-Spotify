@@ -37,26 +37,27 @@ const getAllInfo = async () => {
     
     const response = await fetch(`https://api.spotify.com/v1/search?q=${result}&type=artist`,{
             type: 'GET',
+            limit:'4',
             headers: {
                 'Authorization' : 'Bearer ' + accessToken
         }
     })
-    .then(res => res.json())
-    .then(res => res.artists)
-    .then(res => res.items)
-    console.log(response)
-    let tabImg = []
-    response.map(img=>(
-        tabImg.push(img.images)
-    ))
-    console.log(tabImg)
-    affiche.innerHTML =(
-        response.map(res =>(
-            `  <div class="container-artist" >
-                    <img src='${tabImg['url']}' alt='not found'/> 
-                    <h1>${res.name}</h1>
-                    
+    const json = await response.json()
 
+    let tabUrl = []
+    for (let i of json.artists.items){
+        if (i.images.length){
+            tabUrl.push(i.images[0].url)
+        }
+    }
+    console.log(tabUrl)
+    affiche.innerHTML =(
+        json.artists.items.map((res,i) =>(
+            `  <div class="container-artist" >
+                    <img src='${tabUrl[i]}' alt=''class='imgCard'/> 
+                    <h1>nom :${res.name}</h1>
+                    <p>followers :${res.followers.total}
+                    
                 </div>
             ` 
         )).join('')
